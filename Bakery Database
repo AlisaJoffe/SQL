@@ -1,0 +1,30 @@
+--Create a bakery database
+
+CREATE TABLE bakery (id INTEGER PRIMARY KEY, name TEXT, cost_item REAL, sale_price REAL, quantity INTEGER, popularity INTEGER);
+
+INSERT INTO bakery VALUES 
+(1, "Banana Bread", 3.00, 5.00, 12, 12),
+(2, "Choc Chip Cookie", 0.60, 1.50, 24, 2),
+(3, "Red Velvet Cupcake", 2.50, 3.00, 12, 3),
+(4, "Vanilla Cupcake", 1.75, 3.00, 24, 8),
+(5, "Chocolate Cupcake", 2.00, 3.00, 12, 6),
+(6, "Carrot Cake Slice", 1.20, 3.00, 12, 15),
+(7, "Oatmeal Cookie", 0.75, 1.50, 12, 7),
+(8, "Sugar Cookie", 0.60, 1.50, 24, 4),
+(9, "Pumpkin Bread", 2.25, 5.00, 12, 14),
+(10, "Brownies", 1.50, 2.00, 10, 5),
+(11, "Classic Cheesecake Slice", 2.25, 3.50, 12, 13),
+(12, "Oreo Cheesecake Slice", 2.75, 3.50, 12, 11),
+(13, "Blondies", 1.40, 2.00, 10, 10),
+(14, "Red Velvet Cookie", 1.00, 1.50, 12, 9),
+(15, "Caramel Cupcake", 2.30, 3.00, 12, 1);
+
+--Display database prices ordered by sale price
+SELECT name, cost_item, sale_price FROM bakery ORDER BY sale_price;
+
+--How much did it cost to bake current quanity?
+SELECT name, (cost_item*quantity) FROM bakery;
+
+--What are the 5 most popular items?
+SELECT name, sale_price, popularity FROM bakery
+ORDER BY popularity asc LIMIT 5;
